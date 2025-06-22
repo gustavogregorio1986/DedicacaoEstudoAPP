@@ -1,0 +1,11 @@
+.tema-claro {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+.tema-escuro {
+  background-color: #1e1e1e;
+  color: white;
+  transition: 0.3s;
+}

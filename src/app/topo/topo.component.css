@@ -1,0 +1,12 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.botao-config {
+  background-color: #f44336; /* vermelho */
+  border-radius: 50%;
+}
+
+.botao-config mat-icon {
+  color: white;
+}

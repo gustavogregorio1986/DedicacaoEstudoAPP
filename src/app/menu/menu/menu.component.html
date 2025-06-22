@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>Menu de login e cadastro</span>
+  <span class="spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu">Menu de opçõoes</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/home">Início</button>
+    <button mat-menu-item routerLink="/cadastrar">Cadastro de Login</button>
+    <button mat-menu-item routerLink="/logar">Logar no sistema</button>
+  </mat-menu>
+</mat-toolbar>
