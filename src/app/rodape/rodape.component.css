@@ -1,0 +1,21 @@
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.router-outlet, .content {
+  flex: 1 1 auto;
+}
+
+.footer {
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+}
