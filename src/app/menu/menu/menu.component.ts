@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { HomeComponent } from '../../home/home.component';
 
 @Component({
   selector: 'app-menu',
-  imports: [ MatToolbarModule,MatButtonModule,MatIconModule,MatMenuModule, RouterLink],
+  imports: [MatSidenavModule,MatListModule,RouterModule,RouterLink],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })

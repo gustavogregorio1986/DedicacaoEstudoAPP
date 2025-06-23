@@ -4,8 +4,8 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { LogarComponent } from './logar/logar.component';
 
 export const routes: Routes = [
-    { path:'', redirectTo: 'home', pathMatch: 'full' },
-    { path:'home', component:HomeComponent },
-    { path:'cadastrar', component:CadastrarComponent },
-    { path:'logar', component:LogarComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'cadastrar', component: CadastrarComponent },
+  { path: 'logar', component: LogarComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

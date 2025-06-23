@@ -1,3 +1,11 @@
-<app-topo></app-topo>
-<app-menu></app-menu>
-<router-outlet></router-outlet>
+<mat-sidenav-container style="height: 100vh;">
+  <!-- MENU LATERAL -->
+  <mat-sidenav mode="side" opened>
+    <app-menu></app-menu>
+  </mat-sidenav>
+
+  <!-- CONTEÚDO -->
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

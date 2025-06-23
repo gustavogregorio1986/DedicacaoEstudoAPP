@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { MenuComponent } from './menu/menu/menu.component';
 import { TopoComponent } from './topo/topo.component';
-import { MatIconModule } from '@angular/material/icon';
+import { HomeComponent } from './home/home.component';
+import { MatSidenavContainer, MatSidenavModule } from '@angular/material/sidenav';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MenuComponent, TopoComponent],
+  imports: [MatSidenavContainer, MatSidenavModule, RouterOutlet, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
