@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastrar',
@@ -8,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class CadastrarComponent {
 
+  
 }
