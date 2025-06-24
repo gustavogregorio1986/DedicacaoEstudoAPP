@@ -3,7 +3,7 @@ import { MenuComponent } from '../menu/menu/menu.component';
 import { RodapeComponent } from '../rodape/rodape.component';
 @Component({
   selector: 'app-home',
-  imports: [MenuComponent, RodapeComponent],
+  imports: [RodapeComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
