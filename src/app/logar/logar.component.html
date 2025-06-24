@@ -1,2 +1,22 @@
-<h1 class="center">Logar!</h1>
-<p>Conteúdo da logar aqui.</p>
+<h1 class="center">Logar com Usuário!</h1>
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="conteudo">
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="Email" type="email">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Senha</mat-label>
+    <input matInput formControlName="Senha" type="password">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Entrar como</mat-label>
+    <mat-select formControlName="Role">
+      <mat-option value="usu">Usuário</mat-option>
+      <mat-option value="adm">Administrador</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Entrar</button>
+</form>
