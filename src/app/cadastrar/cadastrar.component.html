@@ -1,2 +1,32 @@
-<h2>Cadastrar</h2>
-<p>Cadastrar no sistema.</p>
+<h2 class="center">Cadastrar</h2>
+<form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()" style="width: 300px; margin: auto; display: flex; flex-direction: column; gap: 16px;">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="Email" placeholder="Digite o email">
+    <mat-error *ngIf="usuarioForm.get('Email')?.invalid">Email é obrigatório</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Senha</mat-label>
+    <input matInput formControlName="Senha" type="password" placeholder="Digite a senha">
+    <mat-error *ngIf="usuarioForm.get('Senha')?.invalid">Senha é obrigatória</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+  <mat-label>Perfil</mat-label>
+  <mat-select formControlName="Role" placeholder="Escolha o perfil">
+    <mat-option value="admin">Admin</mat-option>
+    <mat-option value="usuario">Usuário</mat-option>
+  </mat-select>
+  <mat-error *ngIf="usuarioForm.get('Role')?.invalid">Perfil é obrigatório</mat-error>
+ </mat-form-field>
+
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="usuarioForm.invalid">
+    Salvar
+  </button>
+
+</form>
+<app-rodape></app-rodape>
+
