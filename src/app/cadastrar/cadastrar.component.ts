@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { RodapeComponent } from '../rodape/rodape.component';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-cadastrar',
@@ -23,14 +24,15 @@ export class CadastrarComponent {
     });
 
 
-  onSubmit() {
-    if (this.usuarioForm.valid) {
+    onSubmit() {
+     if (this.usuarioForm.valid) {
      const usuario: Usuario = new Usuario(
       this.usuarioForm.value.Id!,
       this.usuarioForm.value.Email!,
       this.usuarioForm.value.Senha!,
       this.usuarioForm.value.Role!
     );
+    
       console.log('Usuário criado:', usuario);
     } else {
       console.log('Formulário inválido!');
