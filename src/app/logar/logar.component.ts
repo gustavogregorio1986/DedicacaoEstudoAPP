@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -16,16 +16,18 @@ import { RodapeComponent } from '../rodape/rodape.component';
 export class LogarComponent implements AfterViewInit{
 
   loginForm = new FormGroup({
-    email: new FormControl('', Validators.required),
-    senha: new FormControl('', Validators.required),
-    role: new FormControl('', Validators.required),
+    Email: new FormControl('', Validators.required),
+    Senha: new FormControl('', Validators.required),
+    Role: new FormControl('', Validators.required),
   });
 
-  constructor(private cdr: ChangeDetectorRef){}
+  constructor(private cd: ChangeDetectorRef){ }
 
   ngAfterViewInit() {
-    // Força atualização da view depois do carregamento
-    this.cdr.detectChanges();
+      this.cd.detectChanges();
+    requestAnimationFrame(() => {
+      document.body.offsetHeight; // força reflow
+    });
   }
 
   onLogin() {

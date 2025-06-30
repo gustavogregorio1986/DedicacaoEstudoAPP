@@ -10,3 +10,26 @@
     column; 
     gap: 16px;
 }
+
+.container-login {
+  max-width: 400px;
+  margin: auto;
+  padding: 16px;
+}
+
+.container-login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-login mat-form-field.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.container-login button {
+  width: 100%;
+  max-width: 200px;
+  margin-top: 24px;
+}
