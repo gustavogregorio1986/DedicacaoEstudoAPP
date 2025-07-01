@@ -21,7 +21,6 @@ export class CadastrarComponent {
    mensagemErro: string = '';
 
    usuarioForm = new FormGroup({
-      Id: new FormControl('', Validators.required),
       Email: new FormControl('', Validators.required),
       Senha: new FormControl('', Validators.required),
       Role: new FormControl('', Validators.required) // corrigido aqui
@@ -32,30 +31,37 @@ export class CadastrarComponent {
     botaoDesabilitado = false;
 
     onSubmit() {
-     this.botaoDesabilitado = true;
-     if (this.usuarioForm.valid) {
-       const usuario: Usuario = new Usuario(
-        this.usuarioForm.value.Id!,
-        this.usuarioForm.value.Email!,
-        this.usuarioForm.value.Senha!,
-        this.usuarioForm.value.Role!
-      );
-       this.usuarioService.cadastrar(usuario).subscribe({
+  this.botaoDesabilitado = true;
+
+  if (this.usuarioForm.valid) {
+    const usuario: Usuario = new Usuario(
+      undefined,
+      this.usuarioForm.value.Email!,
+      this.usuarioForm.value.Senha!,
+      this.usuarioForm.value.Role!
+    );
+
+    this.usuarioService.cadastrar(usuario).subscribe({
       next: (res) => {
         this.mensagemSucesso = 'Usuário cadastrado com sucesso!';
         this.mensagemErro = '';
+        this.botaoDesabilitado = false; // Habilita o botão novamente
+        this.usuarioForm.reset();      // Opcional: limpa o formulário
       },
       error: (err) => {
         console.error('Erro ao cadastrar usuário', err);
         this.mensagemErro = 'Erro ao cadastrar usuário.';
         this.mensagemSucesso = '';
+        this.botaoDesabilitado = false; // Habilita o botão mesmo em erro
       }
-     });
+    });
 
-      console.log('Usuário criado:', usuario);
-    } else {
-      this.mensagemErro = 'Formulário inválido!';
-      this.mensagemSucesso = '';
-    }
+    console.log('Usuário criado:', usuario);
+  } else {
+    this.mensagemErro = 'Formulário inválido!';
+    this.mensagemSucesso = '';
+    this.botaoDesabilitado = false; // Também libera o botão se inválido
   }
+ }
+  
 }
