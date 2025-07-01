@@ -16,6 +16,10 @@ import { UsuarioService } from '../services/usuario.service';
   styleUrl: './cadastrar.component.css'
 })
 export class CadastrarComponent {
+
+   mensagemSucesso: string = '';
+   mensagemErro: string = '';
+
    usuarioForm = new FormGroup({
       Id: new FormControl('', Validators.required),
       Email: new FormControl('', Validators.required),
@@ -23,19 +27,35 @@ export class CadastrarComponent {
       Role: new FormControl('', Validators.required) // corrigido aqui
     });
 
+    constructor(private usuarioService: UsuarioService){}
+
+    botaoDesabilitado = false;
 
     onSubmit() {
+     this.botaoDesabilitado = true;
      if (this.usuarioForm.valid) {
-     const usuario: Usuario = new Usuario(
-      this.usuarioForm.value.Id!,
-      this.usuarioForm.value.Email!,
-      this.usuarioForm.value.Senha!,
-      this.usuarioForm.value.Role!
-    );
-    
+       const usuario: Usuario = new Usuario(
+        this.usuarioForm.value.Id!,
+        this.usuarioForm.value.Email!,
+        this.usuarioForm.value.Senha!,
+        this.usuarioForm.value.Role!
+      );
+       this.usuarioService.cadastrar(usuario).subscribe({
+      next: (res) => {
+        this.mensagemSucesso = 'Usuário cadastrado com sucesso!';
+        this.mensagemErro = '';
+      },
+      error: (err) => {
+        console.error('Erro ao cadastrar usuário', err);
+        this.mensagemErro = 'Erro ao cadastrar usuário.';
+        this.mensagemSucesso = '';
+      }
+     });
+
       console.log('Usuário criado:', usuario);
     } else {
-      console.log('Formulário inválido!');
+      this.mensagemErro = 'Formulário inválido!';
+      this.mensagemSucesso = '';
     }
   }
 }
