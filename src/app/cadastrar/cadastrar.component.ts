@@ -44,9 +44,9 @@ export class CadastrarComponent {
       this.usuarioService.cadastrar(usuario).subscribe({
   next: (res) => {
     this.mensagemSucesso = 'Usuário cadastrado com sucesso!';
+    this.usuarioForm.reset();
     this.mensagemErro = '';
     this.botaoDesabilitado = false;
-    this.usuarioForm.reset();
   },
   error: (err) => {
     console.error('Erro ao cadastrar usuário', err);
