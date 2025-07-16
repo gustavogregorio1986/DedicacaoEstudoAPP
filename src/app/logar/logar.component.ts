@@ -38,7 +38,7 @@ export class LogarComponent implements AfterViewInit{
     });
   }
 
-   onLogin() {
+  onLogin() {
     if (this.loginForm.valid) {
       const payload = {
         email: this.loginForm.value.Email,
