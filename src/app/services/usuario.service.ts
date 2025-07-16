@@ -21,4 +21,11 @@ export class UsuarioService {
       return this.http.post<{ token: string }>(`${this.apiUrl}/login`, usuario);
    }
 
+   getPerfilAdmin(){
+      return this.http.get(`${this.apiUrl}/Adm/Perfil`);
+   }
+
+   getPerfilUsuario(){
+      return this.http.get(`${this.apiUrl}/Usu/Perfil`);
+   }
 }

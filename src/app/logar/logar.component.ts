@@ -58,13 +58,20 @@ export class LogarComponent implements AfterViewInit{
 
       const role = decoded.role;
 
-      if (role === 'adm') {
-        this.router.navigate(['/admin']);
-      } else if (role === 'usu') {
-        this.router.navigate(['/usuario']);
-      } else {
-        this.router.navigate(['/login']);
-      }
+      if (role === 'admin') {
+        this.usuarioService.getPerfilAdmin().subscribe(data => {
+         console.log('admin: ', data);
+       });
+     } else if (role === 'usuario') {
+        this.usuarioService.getPerfilUsuario().subscribe(data => {
+         console.log('usuario: ', data);
+        });
+     } else {
+       this.usuarioService.getPerfilUsuario().subscribe(data => {
+        console.log('Perfil de usuario: ', data);
+     });
+   }
+
     },
     error: (error) => {
       console.error('Erro no login:', error);
